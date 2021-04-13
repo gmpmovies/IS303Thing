@@ -6,7 +6,8 @@ let app = express(); // This creates our application by calling the express func
 
 let path = require("path"); // This makes working with ejs files easier.
 
-const port = 3000; // This makes code more readable later on
+const port = process.env.PORT || 3000; // This makes code more readable later on
+const knex = require(path.join(__dirname + '/knex/knex.js'));
 
 app.set("view engine", "ejs"); // This sets the view engine to be ejs so we can use the embedded javascript.
 app.use(express.urlencoded({extended: true}));
@@ -14,16 +15,16 @@ app.use(express.urlencoded({extended: true}));
 // app.use(express.static(__dirname + "/public"));
 
 
-const knex = require("knex")({
-    client: "pg",
-    connection: {
-        host : "localhost",
-        user : "postgres",
-        password : "node3/17",
-        database : "vehicle",
-        port : 5432
-    }
-});  
+// const knex = require("knex")({
+//     client: "pg",
+//     connection: {
+//         host : "localhost",
+//         user : "postgres",
+//         password : "node3/17",
+//         database : "vehicle",
+//         port : 5432
+//     }
+// });  
 
 app.get("/", (req, res) => {
     res.render("index", {});
