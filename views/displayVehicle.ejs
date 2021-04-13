@@ -1,0 +1,118 @@
+<!-- Project 3, 4/12/21, Jessica Kinghorn, Zach Barton, Matthew Watters, Madison Clark, Mason Perry -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle List</title>
+    
+    <style>
+    #table {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      #table td, #table th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+      
+      #table tr:nth-child(even){background-color: #f2f2f2;}
+      
+      #table tr:hover {background-color: #ddd;}
+      
+      #table th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4CAF50;
+        color: white;
+                 }
+
+        
+        body {font-family: Arial, Helvetica, sans-serif;}
+        * {box-sizing: border-box;}
+        
+        input[type=text], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical;
+        }
+        
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        .container {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+    </style>
+
+</head>
+<body>
+    <label><b>Vehicle Information</b></label>
+    <br><br>
+    <table id="table" class="table">
+        <thead>
+            <tr>
+                <th style="width: 16%;text-align:left"></th>
+                <th style="width: 16%;text-align:left"><u>Vehicle Description</u></th>
+                <th style="width: 16%;text-align:left"><u>Vehicle Type</u></th>
+                <th style="width: 16%;text-align:left"><u>Vehicle Year</u></th>
+                <th style="width: 16%;text-align:left"><u>Mileage</u></th>
+                <th style="width: 16%;text-align:left"><u>Still in Use</u></th>
+                <th style="width: 16%;text-align:left"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (let iCount = 0; iCount < myvehicles.length; iCount++) { %>    
+                <tr>
+                    <td>
+                        <form action="/deleteVehicle<%=myvehicles[iCount].vehicle_id%>" method="POST">
+                            <button type="submit" style="font-weight: bold; background-color: red;" onclick="">Delete</button>
+                        </form>
+                    </td>
+
+                    <td><%= myvehicles[iCount].description %></td>
+                    <td><%= myvehicles[iCount].type %></td>
+                    <td><%= myvehicles[iCount].year %></td>
+                    <td><%= myvehicles[iCount].mileage %></td>
+                    <td><%= myvehicles[iCount].still_using %></td>
+
+                    <td>
+                        <form action="/editVehicle<%=myvehicles[iCount].vehicle_id%>" method="GET">
+                            <button type="submit" style="font-weight: bold; float: right;" onclick="">Edit</button>
+                        </form>
+                    </td>
+                </tr>
+               <% } %>
+        </tbody>
+    </table>
+    <br><br>
+    <form action="/addVehicle" method="GET">
+        <button type="submit">Add a Vehicle</button>
+    </form>
+​
+​
+</body>
+</html>

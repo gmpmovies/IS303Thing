@@ -1,0 +1,18 @@
+{
+  "name": "project3",
+  "version": "1.0.0",
+  "description": "My first node app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Jessica Kinghorn, Zach Barton, Matthew Watters, Madison Clark, Mason Perry",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "knex": "^0.95.4",
+    "pg": "^8.5.1"
+  }
+}

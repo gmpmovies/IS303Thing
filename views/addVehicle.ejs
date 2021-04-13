@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Add a Vehicle</title>
+        <link rel="stylesheet" href="/styles.css">
+
+        <style>
+            body {font-family: Arial, Helvetica, sans-serif;}
+            * {box-sizing: border-box;}
+            
+            input[type=text], select, textarea {
+              width: 100%;
+              padding: 12px;
+              border: 1px solid #ccc;
+              border-radius: 4px;
+              box-sizing: border-box;
+              margin-top: 6px;
+              margin-bottom: 16px;
+              resize: vertical;
+            }
+            
+            button {
+              background-color: #4CAF50;
+              color: white;
+              padding: 12px 20px;
+              border: none;
+              border-radius: 4px;
+              cursor: pointer;
+            }
+            
+            button:hover {
+              background-color: #45a049;
+            }
+            
+            .container {
+              border-radius: 5px;
+              background-color: #f2f2f2;
+              padding: 20px;
+            }
+            </style>
+
+    </head>
+    <body>
+        <div class="container">
+            <form action="/addVehicle" method="POST">
+                <fieldset style="width: 0px;">
+                    <legend>Add a Vehicle:</legend>
+                        <br>
+                        <label for="vehicleName">Description:</label>
+                        <br>
+                        <input type="text" id="vehicleName" name="description">
+                        <br><br>
+                        <input type="radio" id="sCar" name="type" value="C">
+                                    <label for="sCar">Car</label><br>
+                                    <input type="radio" id="sTruck" name="type" value="T">
+                                    <label for="sTruck">Truck</label><br>
+                                    <input type="radio" id="sBike" name="type" value="B">
+                                    <label for="sBike">Bike</label><br>
+                                    <input type="radio" id="sMotorcycle" name="type" value="M">
+                                    <label for="sMotorcycle">Motorcycle</label>
+                        <br><br>
+                        <label for="sCarYear">Choose the Year:</label>
+                        <br>
+                        <input type="date-local" id="sCarYear" name="year" min="1950">
+                        <br><br>
+                        <label for="iMiles">Enter Vehicle Mileage:</label>
+                        <br>
+                        <input type="number" id="iMiles" name="mileage">
+                        <br><br>
+                        <input type="checkbox" id="sUsing" name="still_using" value="Y">
+                        <label for="sUsing">Check if Yes</label>
+                        <br><br>
+                        <button  type="submit">Save</button>
+                </fieldset>
+            </form>
+        </div>
+    </body>
+</html>
