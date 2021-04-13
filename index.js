@@ -24,8 +24,7 @@ app.use(express.urlencoded({extended: true}));
 //         database : "vehicle",
 //         port : 5432
 //     }
-// });  
-
+// });
 app.get("/", (req, res) => {
     res.render("index", {});
     });
